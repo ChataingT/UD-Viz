@@ -13,7 +13,7 @@ import { getVisibleTiles } from '../../Utils/3DTiles/3DTilesUtils';
  * It holds two windows that extend the document module, and creates a button
  * for the document deletion.
  */
-export class TemporalModule {
+export class GraphTemporalModule {
     /**
      * Constructs a new temporal module.
      *
@@ -73,6 +73,7 @@ export class TemporalModule {
 
         // Instantiate the temporal window
         // TODO: make it active by default
+        console.log("Create graph temporale window");
         this.temporalWindow = new TemporalWindow(refreshCallback, temporalOptions);
     }
 

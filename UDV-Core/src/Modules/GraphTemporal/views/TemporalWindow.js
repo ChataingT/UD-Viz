@@ -1,4 +1,5 @@
 import { Window } from "../../../Utils/GUI/js/Window";
+import { NetworkManagerSingleton } from "../viz";
 import './TemporalWindow.css';
 
 // TODO: MANAGE DATES WITH MOMENT
@@ -30,11 +31,23 @@ export class TemporalWindow extends Window {
         this.timeStep = options.timeStep || 1;
 
         this.refreshCallback = refreshCallback;
+
+        // graph
+
+        console.log("Start graph");
+        this.networkManagerSingleton = new NetworkManagerSingleton();
+        console.log("Init graph");
+        this.networkManagerSingleton.init();
     }
 
     get innerContentHtml() {
         return /*html*/`
             <div id="temporalWindow">
+            <p id="mybuttons">
+            <input id="getData" type="button" value="Load graph"/>
+            <input type="hidden" id="mode" value="default" />
+            </p>
+            <div id="mynetwork"></div>
             <div id="timeSliderMinDate">${this.minTime}</div>
             <div id="timeSliderMaxDate">${this.maxTime}</div>
             <input type="text" id="timeSliderValue" value=${this.currentTime}>

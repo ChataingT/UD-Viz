@@ -23,7 +23,8 @@ baseDemo.loadConfigFile('../data/config/generalDemoConfig.json').then(() => {
         timeStep: 1,
     };
     const layerConfig = baseDemo.config['3DTilesTemporalLayer'];
-    const temporalModule = new udvcore.TemporalModule(layerConfig, baseDemo.view, temporalOptions);
+    console.log("instance temporale module");
+    const temporalModule = new udvcore.GraphTemporalModule(layerConfig, baseDemo.view, temporalOptions);
     baseDemo.addModuleView('temporal', temporalModule.temporalWindow, {
         name: 'Temporal Navigation'
     });

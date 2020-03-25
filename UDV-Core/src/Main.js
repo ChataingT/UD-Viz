@@ -20,7 +20,7 @@ export { HelpWindow }               from './Modules/Others/Help';
 
 export { TemporalModule }           from './Modules/Temporal/TemporalModule';
 
-export { GraphTemporalModule }           from './Modules/Temporal/TemporalModule';
+export { GraphTemporalModule }      from './Modules/GraphTemporal/TemporalModule';
 
 export { DocumentController }        from './Modules/ConsultDoc/DocumentController';
 
