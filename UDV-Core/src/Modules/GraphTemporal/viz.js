@@ -125,10 +125,11 @@ export class NetworkManagerSingleton {
     }
 
     prepare_html_pages(data_url, data_option) {
-        var button_load = document.getElementById("getData");
-        button_load.onclick = function(param) {
-            var n = new NetworkManagerSingleton();
-
+        //var button_load = document.getElementById("getData");
+        //button_load.onclick = function(param) {
+        
+        var n = new NetworkManagerSingleton();
+/*
             var request_d = new XMLHttpRequest();
             var result_d = null;
             request_d.open("GET", data_url);
@@ -168,9 +169,263 @@ export class NetworkManagerSingleton {
                 }
             };
             request_o.send();
+*/
 
+        //}
+        // mode dégradé
+        
+        var data_received = {
+            "nodes": [
+                  {
+                    "id": 0,
+                    "label": "2000",
+                    "level": 0,
+                    "group": 0
+                },
+                {
+                    "id": 1,
+                    "label": "2001",
+                    "level": 1,
+                    "group": 0
+                },
+                {
+                    "id": 2,
+                    "label": "2002",
+                    "level": 2,
+                    "group": 0
+                },
+                {
+                    "id": 3,
+                    "label": "2003",
+                    "level": 3,
+                    "group": 0
+                },
+                {
+                    "id": 4,
+                    "label": "2004",
+                    "level": 4,
+                    "group": 0
+                },
+                {
+                    "id": 5,
+                    "label": "2005",
+                    "level": 5,
+                    "group": 0
+                },
+                {
+                    "id": 6,
+                    "label": "C_2000",
+                    "level": 0,
+                    "group": 1
+                },
+                {
+                    "id": 7,
+                    "label": "C_2002",
+                    "level": 2,
+                    "group": 1
+                },
+                {
+                    "id": 8,
+                    "label": "C_2004",
+                    "level": 4,
+                    "group": 1
+                },
+                {
+                    "id": 9,
+                    "label": "P_2001",
+                    "level": 1,
+                    "group": 2
+                },
+                {
+                    "id": 10,
+                    "label": "P_2001",
+                    "level": 1,
+                    "group": 2
+                },
+                {
+                    "id": 11,
+                    "label": "P_2004",
+                    "level": 4,
+                    "group": 2
+                },
+                {
+                    "id": 12,
+                    "label": "C_2004",
+                    "level": 4,
+                    "group": 1
+                }
+            ],
+            "edges": [
+                  {
+                    "from": 0,
+                    "to": 1
+                },
+                {
+                    "from": 1,
+                    "to": 2
+                },
+                {
+                    "from": 2,
+                    "to": 3
+                },
+                {
+                    "from": 3,
+                    "to": 4
+                },
+                {
+                    "from": 4,
+                    "to": 5
+                },
+                {
+                    "from": 6,
+                    "to": 7,
+                    "color": "red",
+                    "label": "modification"
+                },
+                {
+                    "from": 7,
+                    "to": 8,
+                    "color": "blue",
+                    "label": "split"
+                },
+                {
+                    "from": 8,
+                    "to": 12,
+                    "color": "blue",
+                    "label": "split"
+                },
+                {
+                    "from": 9,
+                    "to": 7,
+                    "color": "green",
+                    "label": "merge"
+                },
+                {
+                    "from": 10,
+                    "to": 7,
+                    "color": "green",
+                    "label": "merge"
+                },
+                {
+                    "from": 7,
+                    "to": 11,
+                    "color": "black",
+                    "label": "destruction"
+                }
+        
+            ],
+            "groups":[
+                {
+                    "id":0,
+                    "label": "timeFrame"
+                },
+                {
+                    "id":1,
+                    "label": "consensusScenario"
+                },
+                {
+                    "id":2,
+                    "label": "propositionScenario"
+                }
+            ]
+        };
 
-        }
+        var options_received = {
+            "options":
+            [
+/*                {
+                    "visNetwork":
+                    {
+                        "edges": 
+                                {
+                                    "smooth": 
+                                    {
+                                        "type": "cubicBezier"
+                                    },
+                                    "arrows": { "to": true },
+                                    "font":{ "align": "middle"},
+                                    "length":170
+                                },
+                        "groups":
+                                {
+                                    "useDefaultGroups": true,
+                                    "timeFrame":{
+                                        "color": "white",
+                                        "hidden": "true"
+                                    },
+                                    "consensusScenario":{
+                                        "color": "green"
+                                    },
+                                    "propositionScenario":{
+                                        "color": "yellow"
+                                    }
+                                },
+                        "physics":
+                                {
+                                    "enabled": true
+        
+                                }
+                    }
+                    
+                },
+*/              {
+//                    "mode":"hierarchy",
+                    "visNetwork":{
+                        "edges": 
+                        {
+                            "smooth": 
+                            {
+                            "type": "cubicBezier"
+                            },
+                            "arrows": { "to": true },
+                            "font":{ "align": "middle"},
+                            "length":170
+                        },
+                        "groups":
+                        {
+                            "useDefaultGroups": true,
+                            "timeFrame":{
+                                "color":"white",
+                                "hidden": false
+                            },
+                            "consensusScenario":{
+                                "color": "green"
+                            },
+                            "propositionScenario":{
+                                "color": "yellow"
+                            }
+                        },
+                        "layout": 
+                        {
+                            "hierarchical": 
+                            {
+                                "direction": "LR",
+                                "sortMethod": "directed",
+                                "treeSpacing": 50
+                            }
+                        },
+                        "interaction": { "dragNodes": false },
+                        "physics": 
+                        {
+                        "enabled": false
+                        }
+                    }
+                }
+            ]
+        };
+
+        var result_d = data_received;
+        console.log("result data: %o", result_d);
+        n.data = get_data(result_d);
+        n.data_ok = true;
+
+        var result_o = options_received;
+        console.log("result option: %o", result_o);
+        n.list_option = get_list_options(result_o);
+        n.list_options_ok = true;
+
+        //n.add_button_to_view();
+        n.draw();
     }
 }
 /*
@@ -179,4 +434,5 @@ window.addEventListener("load", () => {
     console.log("Start");
     var n = new NetworkManagerSingleton();
     n.init();
-    });*/
+    });
+*/
