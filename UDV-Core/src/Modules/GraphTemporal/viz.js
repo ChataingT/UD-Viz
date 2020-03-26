@@ -250,8 +250,14 @@ export class NetworkManagerSingleton {
                 },
                 {
                     "id": 12,
-                    "label": "C_2004",
-                    "level": 4,
+                    "label": "C_2005",
+                    "level": 5,
+                    "group": 1
+                },
+                {
+                    "id": 13,
+                    "label": "C_2005_bis",
+                    "level": 5,
                     "group": 1
                 }
             ],
@@ -285,12 +291,18 @@ export class NetworkManagerSingleton {
                 {
                     "from": 7,
                     "to": 8,
+                    "color": "red",
+                    "label": "modification"
+                },
+                {
+                    "from": 8,
+                    "to": 12,
                     "color": "blue",
                     "label": "split"
                 },
                 {
                     "from": 8,
-                    "to": 12,
+                    "to": 13,
                     "color": "blue",
                     "label": "split"
                 },
@@ -378,8 +390,18 @@ export class NetworkManagerSingleton {
                             "type": "cubicBezier"
                             },
                             "arrows": { "to": true },
-                            "font":{ "align": "middle"},
-                            "length":170
+                            "font":{ "align": "middle",
+                                    "size": 25,
+                                    "color": '#FFFFFF',
+                                    "strokeWidth": 0 // px
+                                },
+                            "length":200
+                        },
+                        "nodes":{
+                            "font":{
+                                "size":25
+                            }
+
                         },
                         "groups":
                         {
@@ -401,7 +423,9 @@ export class NetworkManagerSingleton {
                             {
                                 "direction": "LR",
                                 "sortMethod": "directed",
-                                "treeSpacing": 50
+                                "treeSpacing": 100,
+                                "levelSeparation": 250,
+                                "nodeSpacing": 100,
                             }
                         },
                         "interaction": { "dragNodes": false },
