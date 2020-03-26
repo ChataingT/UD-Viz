@@ -36,11 +36,12 @@ export class TemporalWindow extends Window {
 
         console.log("Start graph");
         this.networkManagerSingleton = new NetworkManagerSingleton();
-        console.log("Init graph");
-        this.networkManagerSingleton.init();
+        //console.log("Init graph");
+        //this.networkManagerSingleton.init();
     }
 
     get innerContentHtml() {
+        console.log("Put graph HTML");
         return /*html*/`
             <div id="temporalWindow">
             <p id="mybuttons">
@@ -58,6 +59,7 @@ export class TemporalWindow extends Window {
     }
 
     windowCreated() {
+        console.log("Creation of graph window");
         // Magical code to center an absolute positionned window
         this.window.style.setProperty('left', '0');
         this.window.style.setProperty('right', '0');
@@ -77,6 +79,9 @@ export class TemporalWindow extends Window {
             'input', this.timeSelection.bind(this), false);
         document.getElementById('timeSlider').addEventListener(
             'input', this.timeSelectionSlider.bind(this), false);
+
+        // Add graph
+        this.networkManagerSingleton.init();
     }
 
     // TODO: not sure we need two methods doing the same thing here.

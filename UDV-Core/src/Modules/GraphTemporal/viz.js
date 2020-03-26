@@ -173,10 +173,10 @@ export class NetworkManagerSingleton {
         }
     }
 }
-
+/*
 // test
 window.addEventListener("load", () => {
     console.log("Start");
     var n = new NetworkManagerSingleton();
     n.init();
-    });
+    });*/
