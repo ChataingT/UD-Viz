@@ -39,6 +39,7 @@
     "proj4": "^2.5.0",
     "three": "^0.105.2",
     "three.meshline": "^1.0.3",
+    "vis-data": "^6.5.0",
     "vis-network": "^7.4.0"
   },
   "devDependencies": {
